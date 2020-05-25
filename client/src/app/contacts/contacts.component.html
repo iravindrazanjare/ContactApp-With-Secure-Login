@@ -1,0 +1,50 @@
+<div class="card-body ">
+    <div class="col-md-6 mx-auto float-left">
+    <form (submit) = "addContact()">
+        <div class="card rounded-0 ">
+            <div class="card-header ">
+                <h3 class="mb-50 align:center">Add New Contact</h3>
+          <div class = "form-group">
+            <label>First Name</label>
+            <input type="text" (keypress)="alphabetsOnly($event)" [(ngModel)] = "first_name" name = "first_name" class="form-control rounded-0">
+        </div>
+        <div class = "form-group">
+            <label>Last Name</label>
+            <input type="text" (keypress)="alphabetsOnly($event)" [(ngModel)] = "last_name" name = "last_name" class="form-control rounded-0">
+        </div>
+        <div class = "form-group">
+            <label>Phone</label>
+            <input type="text" (keypress)="numberOnly($event)" [(ngModel)] = "phone" name = "phone" class="form-control rounded-0" required>
+        </div>
+        <div>{{SuccessMsg}}</div>
+        <button [hidden]="isShowDiv" type="submit" class="btn btn-success float-right">Add Contact</button>
+        <button [hidden]="isSShowDiv" type="submit" class="btn btn-success float-right">Update Contact</button>
+            </div>
+    </div>
+    </form>
+    </div>
+</div>
+    <div class = "col s7">
+        <table border = "1" class = "responsive-table highlight float-right">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tr *ngFor = "let contact of contacts; let j=index">
+                <td>{{contact.first_name}}</td>
+                <td>{{contact.last_name}}</td>
+                <td>{{contact.phone}}   </td>
+                <td>
+                    <button type="button" class = "btn btn-danger" (click)= "edit(contact,j)" >Update</button>
+                </td>
+                <td> 
+                    <button type="button" (click) = "deleteContact(contact._id)" class = "btn btn-danger ">Delete</button>
+                </td>               
+            </tr>
+        </table>
+    </div>

@@ -1,0 +1,1 @@
+"# Simple angular app with admin login, Admin can create multiple users. these users can create contacts with individual space allotted to every user. Please Note : before starting the app make sure you have added one record in DB i.e Email : Admin & password: <anything you want>" 
